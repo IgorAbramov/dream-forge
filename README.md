@@ -49,6 +49,40 @@ This is a Flutter application. To run it:
 3. Run `flutter pub get` to install dependencies
 4. Run `flutter run` to start the application
 
+## Run Instructions (with Drift + Riverpod + GoRouter)
+
+Follow these steps for a clean setup across platforms:
+
+1) Prerequisites
+- Flutter SDK (stable channel)
+- Xcode (for iOS/macOS) and/or Android Studio (for Android)
+- Cocoapods for iOS: `sudo gem install cocoapods`
+
+2) Install dependencies
+```bash
+flutter pub get
+```
+
+3) Generate Drift code
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+4) Platform setup
+- iOS/macOS:
+  - From the project root: `cd ios && pod install && cd ..`
+- Android: no extra steps typically required
+
+5) Run the app
+```bash
+flutter run
+```
+
+Notes
+- The app uses ProviderScope in `main.dart` and initializes Flutter bindings before runApp; no additional steps needed.
+- If you change database tables, re-run build_runner.
+- For hot-reload driven changes that modify generated code, use: `dart run build_runner watch -d`.
+
 ## Platform Support
 
 - iOS
